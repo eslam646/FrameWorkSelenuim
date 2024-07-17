@@ -10,9 +10,15 @@ public class HomePage extends MethodHandles {
     }
 
     private final By loginButton= By.linkText("Log in");
+    private final By registerButton= By.linkText("Register");
 
     public LoginPage clickOnLoginButton(){
         click(loginButton,6);
         return new LoginPage(driver);
+    }
+
+    public RegisterPage clickOnRegisterButton(){
+        click(registerButton,5);
+        return new RegisterPage(driver);
     }
 }

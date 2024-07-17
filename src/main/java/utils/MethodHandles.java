@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -11,6 +12,7 @@ import java.time.Duration;
 public class MethodHandles {
     protected WebDriver driver;
     WebDriverWait wait;
+    Select select;
 
     public MethodHandles(WebDriver driver){
         this.driver=driver;
@@ -41,5 +43,11 @@ public class MethodHandles {
     protected String getText(By locator,int time){
         explicitWait(locator, time);
         return webElement(locator).getText();
+    }
+
+    protected void selectList(By locator,int time,String text){
+        explicitWait(locator,time);
+        select=new Select(webElement(locator));
+        select.selectByVisibleText(text);
     }
 }
